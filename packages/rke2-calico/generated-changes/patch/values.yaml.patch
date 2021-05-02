@@ -7,13 +7,13 @@
 +  calicoNetwork:
 +    bgp: Disabled
 +    ipPools:
-+    - natOutgoing: Enabled
++      natOutgoing: Enabled
 +      encapsulation: VXLAN
-+      cidr: 10.42.0.0/16
++      cidr: 100.100.0.0/16
  
  certs:
    node:
-@@ -17,9 +23,10 @@
+@@ -17,9 +23,13 @@
  
  # Configuration for the tigera operator
  tigeraOperator:
@@ -27,3 +27,6 @@
 -  image: quay.io/docker.io/calico/ctl
 +  image: rancher/mirrored-calico-ctl
    tag: v3.18.1
++
++global:
++  systemDefaultRegistry: ""

@@ -1,0 +1,27 @@
+--- charts-original/templates/crs/custom-resources.yaml
++++ charts/templates/crs/custom-resources.yaml
+@@ -1,17 +1,12 @@
+-{{ if .Values.installation.enabled }}
+-{{ $installSpec := omit .Values.installation "enabled" }}
+-{{ $secrets := list }}
+-{{ range $name := keys .Values.imagePullSecrets -}}
+-{{ $item := dict "name" $name }}
+-{{ $secrets = append $secrets $item }}
+-{{ end }}
+-{{ $_ := set $installSpec "imagePullSecrets" $secrets }}
+-
+ apiVersion: operator.tigera.io/v1
+ kind: Installation
+ metadata:
+   name: default
+ spec:
+-{{ $installSpec | toYaml | indent 2 }}
+-
+-{{ end }}
++  kubernetesProvider: {{ .Values.installation.kubernetesProvider }}
++  calicoNetwork:
++    bgp: {{ .Values.installation.calicoNetwork.bgp }}
++    ipPools:
++    - natOutgoing: {{ .Values.installation.calicoNetwork.ipPools.natOutgoing }}
++      encapsulation: {{ .Values.installation.calicoNetwork.encapsulation }}
++      cidr: {{ coalesce .Values.global.clusterCIDR .Values.global.clusterCIDR }}
