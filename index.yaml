@@ -95,6 +95,34 @@ entries:
       catalog.cattle.io/release-name: vsphere-cpi
     apiVersion: v1
     appVersion: 1.28.0
+    created: "2024-03-22T09:28:15.05629479Z"
+    description: vSphere Cloud Provider Interface (CPI)
+    digest: c6e8f4f2ca914fc9163aa4b85806a5f9b623ec9a55ab00f67646b7e0f2e9b26d
+    icon: https://charts.rancher.io/assets/logos/vsphere-cpi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-cpi
+    sources:
+    - https://github.com/kubernetes/cloud-provider-vsphere
+    urls:
+    - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.7.001.tgz
+    version: 1.7.001
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CPI
+      catalog.cattle.io/kube-version: '>= 1.18.0-0 < 1.29.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.8.0-0'
+      catalog.cattle.io/release-name: vsphere-cpi
+    apiVersion: v1
+    appVersion: 1.28.0
     created: "2024-03-05T08:37:42.954803158Z"
     description: vSphere Cloud Provider Interface (CPI)
     digest: e89e9c0d29d470d06e7f9193ef467c4a81f69a03d67364c2456a4087d968d9df
@@ -143,6 +171,34 @@ entries:
     - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.5.100.tgz
     version: 1.5.100
   rancher-vsphere-csi:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CSI
+      catalog.cattle.io/kube-version: '>= 1.20.0-0 < 1.29.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux,windows
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.8.0-0'
+      catalog.cattle.io/release-name: vsphere-csi
+    apiVersion: v1
+    appVersion: 3.1.2-rancher1
+    created: "2024-03-22T09:28:15.060825987Z"
+    description: vSphere Cloud Storage Interface (CSI)
+    digest: d476e58a1a4bea2f6819b6fb4434c65024838d9252835e825c3ce58cd1ffb9c8
+    icon: https://charts.rancher.io/assets/logos/vsphere-csi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-csi
+    sources:
+    - https://github.com/kubernetes-sigs/vsphere-csi-driver
+    urls:
+    - assets/rancher-vsphere-csi/rancher-vsphere-csi-3.1.2-rancher101.tgz
+    version: 3.1.2-rancher101
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: vSphere CSI
@@ -205,6 +261,23 @@ entries:
   - annotations:
       catalog.cattle.io/namespace: tigera-operator
     apiVersion: v2
+    appVersion: v3.27.2
+    created: "2024-03-22T09:28:15.079266559Z"
+    description: Installs the Tigera operator for Calico
+    digest: ed93ad6cd1828155fff62a2395f90a952c047eb0eb15f01bc99af93bcec7d9b1
+    home: https://projectcalico.docs.tigera.io/about/about-calico
+    icon: https://projectcalico.docs.tigera.io/images/felix_icon.png
+    name: rke2-calico
+    sources:
+    - https://github.com/projectcalico/calico/tree/master/calico/_includes/charts/tigera-operator
+    - https://github.com/tigera/operator
+    - https://github.com/projectcalico/calico
+    urls:
+    - assets/rke2-calico/rke2-calico-v3.27.200.tgz
+    version: v3.27.200
+  - annotations:
+      catalog.cattle.io/namespace: tigera-operator
+    apiVersion: v2
     appVersion: v3.27.0
     created: "2024-03-05T08:37:42.969809085Z"
     description: Installs the Tigera operator for Calico
@@ -249,6 +322,15 @@ entries:
     version: v3.21.504
   rke2-calico-crd:
   - apiVersion: v1
+    created: "2024-03-22T09:28:15.077730959Z"
+    description: Installs the CRDs for rke2-calico
+    digest: 4a71bbebecd26684bcd0b10646cb81a85145aaf99b830ae59e1a075553ddecc8
+    name: rke2-calico-crd
+    type: application
+    urls:
+    - assets/rke2-calico/rke2-calico-crd-v3.27.200.tgz
+    version: v3.27.200
+  - apiVersion: v1
     created: "2024-03-05T08:37:42.967849846Z"
     description: Installs the CRDs for rke2-calico
     digest: f734df7daccbbf6d507bd93df656ef8bcab26f2e3f6abaac810e01b3d865d2d9
@@ -276,6 +358,23 @@ entries:
     - assets/rke2-calico-1.21-1.22/rke2-calico-crd-v3.21.504.tgz
     version: v3.21.504
   rke2-canal:
+  - apiVersion: v1
+    appVersion: v3.27.2
+    created: "2024-03-22T09:28:15.085521681Z"
+    description: Install Canal Network Plugin.
+    digest: 2021d17ae9e094faa141c4fa3c87b1aa6fd10a6cac0b619720689c7a001b3045
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.27.2-build2024030801.tgz
+    version: v3.27.2-build2024030801
   - apiVersion: v1
     appVersion: v3.27.0
     created: "2024-02-12T10:48:33.716284131Z"
@@ -703,6 +802,36 @@ entries:
     - assets/rke2-cilium/rke2-cilium-1.9.401.tgz
     version: 1.9.401
   rke2-coredns:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Ignore duplicate strings in the fullname helper template
+        - kind: removed
+          description: Removed deprecated "engine: gotpl" from the Chart.yaml
+    apiVersion: v2
+    appVersion: 1.11.1
+    created: "2024-03-22T09:28:15.128309508Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 3e9f90547efde0c010cd5ba9c8d82ca5b54dab3f27c111aee0aaf5d74af5f0d1
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.29.002.tgz
+    version: 1.29.002
   - annotations:
       artifacthub.io/changes: |
         - kind: changed
@@ -1526,6 +1655,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v2
+    appVersion: 4.0.2
+    created: "2024-03-22T09:28:15.155780925Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 4e8f1fc71798a69f73a719d5dd98a490d54090bcac590d4754984e2db5c96d24
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.0.2-build2024020802.tgz
+    version: v4.0.2-build2024020802
   - apiVersion: v2
     appVersion: 4.0.2
     created: "2024-03-05T08:37:43.049014456Z"
