@@ -261,6 +261,23 @@ entries:
   - annotations:
       catalog.cattle.io/namespace: tigera-operator
     apiVersion: v2
+    appVersion: v3.27.3
+    created: "2024-04-10T12:25:18.899363453Z"
+    description: Installs the Tigera operator for Calico
+    digest: 351daa681fc1fcab2c3d11b3a3af98c2d2dd73ff105a3555e7f39daeef14129f
+    home: https://projectcalico.docs.tigera.io/about/about-calico
+    icon: https://projectcalico.docs.tigera.io/images/felix_icon.png
+    name: rke2-calico
+    sources:
+    - https://github.com/projectcalico/calico/tree/master/calico/_includes/charts/tigera-operator
+    - https://github.com/tigera/operator
+    - https://github.com/projectcalico/calico
+    urls:
+    - assets/rke2-calico/rke2-calico-v3.27.300.tgz
+    version: v3.27.300
+  - annotations:
+      catalog.cattle.io/namespace: tigera-operator
+    apiVersion: v2
     appVersion: v3.27.2
     created: "2024-03-22T09:28:15.079266559Z"
     description: Installs the Tigera operator for Calico
@@ -321,6 +338,15 @@ entries:
     - assets/rke2-calico-1.21-1.22/rke2-calico-v3.21.504.tgz
     version: v3.21.504
   rke2-calico-crd:
+  - apiVersion: v1
+    created: "2024-04-10T12:25:18.897279208Z"
+    description: Installs the CRDs for rke2-calico
+    digest: 8dfc4a4e8b648b3aa59dd9c5b933ef9209bcd7b51059576639f426c8c7d2a6d5
+    name: rke2-calico-crd
+    type: application
+    urls:
+    - assets/rke2-calico/rke2-calico-crd-v3.27.300.tgz
+    version: v3.27.300
   - apiVersion: v1
     created: "2024-03-22T09:28:15.077730959Z"
     description: Installs the CRDs for rke2-calico
@@ -1078,6 +1104,33 @@ entries:
   rke2-ingress-nginx:
   - annotations:
       artifacthub.io/changes: |-
+        - "update web hook cert gen to latest release v20231226-1a7112e06"
+        - "Update Ingress-Nginx version controller-v1.9.6"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.9.6
+    created: "2024-04-10T12:25:18.962934919Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 5a13e4dcd4408b5fd0041ee936bcd6a877179b64fc7394725f5cba7cbd0b5699
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.9.100.tgz
+    version: 4.9.100
+  - annotations:
+      artifacthub.io/changes: |-
         - "update nginx base, httpbun, e2e, helm webhook cert gen (#10506)"
         - "Update Ingress-Nginx version controller-v1.9.3"
       artifacthub.io/prerelease: "false"
@@ -1621,6 +1674,38 @@ entries:
     - assets/rke2-kube-proxy/rke2-kube-proxy-v1.18.4.tgz
     version: v1.18.4
   rke2-metrics-server:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: "Updated the _Metrics Server_ OCI image to [v0.7.0](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.0)."
+        - kind: changed
+          description: "Updated the _addon-resizer_ OCI image to [v1.8.20](https://github.com/kubernetes/autoscaler/releases/tag/addon-resizer-1.8.20)."
+    apiVersion: v2
+    appVersion: 0.7.1
+    created: "2024-04-10T12:25:18.978559309Z"
+    description: Metrics Server is a scalable, efficient source of container resource
+      metrics for Kubernetes built-in autoscaling pipelines.
+    digest: 0266c68dadef0ef20731b378f650ed3846f4ffdd843bdbbad0dd106e2dd4134f
+    home: https://github.com/kubernetes-sigs/metrics-server
+    icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+    keywords:
+    - kubernetes
+    - metrics-server
+    - metrics
+    maintainers:
+    - name: stevehipwell
+      url: https://github.com/stevehipwell
+    - name: krmichel
+      url: https://github.com/krmichel
+    - name: endrec
+      url: https://github.com/endrec
+    name: rke2-metrics-server
+    sources:
+    - https://github.com/kubernetes-sigs/metrics-server
+    type: application
+    urls:
+    - assets/rke2-metrics-server/rke2-metrics-server-3.12.000.tgz
+    version: 3.12.000
   - apiVersion: v1
     appVersion: 0.3.6
     created: "2021-02-25T17:59:12.953693-08:00"
@@ -1698,6 +1783,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v2
+    appVersion: 4.0.2
+    created: "2024-04-10T12:25:18.982550449Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 12e8a549bee185055f1d746b57e1e00edec1da6cada1e021c26d99a5ff04e799
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.0.204.tgz
+    version: v4.0.204
   - apiVersion: v2
     appVersion: 4.0.2
     created: "2024-03-27T06:47:46.789374797Z"
