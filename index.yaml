@@ -1495,6 +1495,19 @@ entries:
   rke2-flannel:
   - apiVersion: v1
     appVersion: v0.25.1
+    created: "2024-05-24T13:19:15.224740734Z"
+    description: Install Flannel Network Plugin.
+    digest: 327e927a3281f72f10074682c2f902c5d011338a2e9d1fced5808fb741383db2
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.25.103.tgz
+    version: v0.25.103
+  - apiVersion: v1
+    appVersion: v0.25.1
     created: "2024-05-21T10:16:50.504615182Z"
     description: Install Flannel Network Plugin.
     digest: f72c68ecf3bbdc8bc65d6c67b02626f971e2739a177cef4af0fbc2ecb8bf9576
@@ -1572,6 +1585,33 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.201.tgz
     version: v0.24.201
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |-
+        - "update web hook cert gen to latest release v20231226-1a7112e06"
+        - "Update Ingress-Nginx version controller-v1.9.6"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.9.6
+    created: "2024-05-24T13:19:15.240093707Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: b1b4a29a0af6b206de26f966df093dc23004bb6352940e680245ff64eeca536a
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.9.101.tgz
+    version: 4.9.101
   - annotations:
       artifacthub.io/changes: |-
         - "update web hook cert gen to latest release v20231226-1a7112e06"
@@ -2503,4 +2543,63 @@ entries:
     urls:
     - assets/rke2-snapshot-validation-webhook/rke2-snapshot-validation-webhook-1.7.302.tgz
     version: 1.7.302
+  rke2-traefik:
+  - annotations:
+      artifacthub.io/changes: "- \"feat: ✨ add healthcheck ingressRoute\"\n- \"feat:
+        :boom: support http redirections and http challenges with cert-manager\"\n-
+        \"feat: :boom: rework and allow update of namespace policy for Gateway\"\n-
+        \"fix: disable ClusterRole and ClusterRoleBinding when not needed\"\n- \"fix:
+        detect correctly v3 version when using sha in `image.tag`\"\n- \"fix: allow
+        updateStrategy.rollingUpdate.maxUnavailable to be passed in as an int or string\"\n-
+        \"fix: add missing separator in crds\"\n- \"fix: add Prometheus scraping annotations
+        only if serviceMonitor not created\"\n- \"docs: Fix typo in the default values
+        file\"\n- \"chore: remove label whitespace at TLSOption\"\n- \"chore(release):
+        \U0001F680 publish v25.0.0\"\n- \"chore(deps): update traefik docker tag to
+        v2.10.5\"\n- \"chore(deps): update docker.io/helmunittest/helm-unittest docker
+        tag to v3.12.3\"\n- \"chore(ci): \U0001F527 \U0001F477 add e2e test when releasing\"\n"
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v2
+    appVersion: v2.10.5
+    created: "2024-05-24T13:19:15.26675949Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: e43a30bb03287c154a49d16736c627227ab66cf2870c1761698f87782c82d112
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ldez@traefik.io
+      name: ldez
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: charlie.haley@traefik.io
+      name: charlie-haley
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
+    version: 25.0.000
+  rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v2.10.5
+    created: "2024-05-24T13:19:15.267602869Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 508820cb02b704537a241fa8d036f8744129ccae136134aeb5f527ef1d8bf3ad
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-25.0.000.tgz
+    version: 25.0.000
 generated: "2021-02-25T17:59:12.927381-08:00"
