@@ -603,6 +603,23 @@ entries:
   rke2-canal:
   - apiVersion: v1
     appVersion: v3.28.1
+    created: "2024-09-10T15:35:17.60765093Z"
+    description: Install Canal Network Plugin.
+    digest: b098cd93721016748bf3782f8207e72904f6370693ed1c0e84aa51de512547b7
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.28.1-build2024091000.tgz
+    version: v3.28.1-build2024091000
+  - apiVersion: v1
+    appVersion: v3.28.1
     created: "2024-09-10T11:13:44.615350871Z"
     description: Install Canal Network Plugin.
     digest: a67bbd92f7e285f80ae9db7391e881ca15e6bd5534d77c2490565ffa7f38c1ab
@@ -1575,6 +1592,36 @@ entries:
           description: Removed deprecated "engine: gotpl" from the Chart.yaml
     apiVersion: v2
     appVersion: 1.11.1
+    created: "2024-09-10T15:35:17.692116749Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 5e483c14dc38c2c3d2e7b7e2e50814ae7a74d6642f0916a324aed39ae22afd27
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.29.006.tgz
+    version: 1.29.006
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Ignore duplicate strings in the fullname helper template
+        - kind: removed
+          description: Removed deprecated "engine: gotpl" from the Chart.yaml
+    apiVersion: v2
+    appVersion: 1.11.1
     created: "2024-09-10T11:13:44.695678488Z"
     description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
       DNS Services
@@ -1814,6 +1861,19 @@ entries:
     - assets/rke2-coredns/rke2-coredns-1.10.101-build2021022301.tgz
     version: 1.10.101-build2021022301
   rke2-flannel:
+  - apiVersion: v1
+    appVersion: v0.25.6
+    created: "2024-09-10T15:35:17.694755488Z"
+    description: Install Flannel Network Plugin.
+    digest: 58194b4db8af2083ea63c029c96bc5c4e15c5d55f3150bb56e7a5d16fd61d12d
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.25.601.tgz
+    version: v0.25.601
   - apiVersion: v1
     appVersion: v0.25.6
     created: "2024-09-10T11:13:44.69879142Z"
@@ -2610,6 +2670,38 @@ entries:
           description: "Updated the _addon-resizer_ OCI image to [v1.8.20](https://github.com/kubernetes/autoscaler/releases/tag/addon-resizer-1.8.20)."
     apiVersion: v2
     appVersion: 0.7.1
+    created: "2024-09-10T15:35:17.737208505Z"
+    description: Metrics Server is a scalable, efficient source of container resource
+      metrics for Kubernetes built-in autoscaling pipelines.
+    digest: 5206f79abfcfb5364818f7b0c4634ced675399c77585918d6a1e7c49597ec8b8
+    home: https://github.com/kubernetes-sigs/metrics-server
+    icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+    keywords:
+    - kubernetes
+    - metrics-server
+    - metrics
+    maintainers:
+    - name: stevehipwell
+      url: https://github.com/stevehipwell
+    - name: krmichel
+      url: https://github.com/krmichel
+    - name: endrec
+      url: https://github.com/endrec
+    name: rke2-metrics-server
+    sources:
+    - https://github.com/kubernetes-sigs/metrics-server
+    type: application
+    urls:
+    - assets/rke2-metrics-server/rke2-metrics-server-3.12.003.tgz
+    version: 3.12.003
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: "Updated the _Metrics Server_ OCI image to [v0.7.0](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.0)."
+        - kind: changed
+          description: "Updated the _addon-resizer_ OCI image to [v1.8.20](https://github.com/kubernetes/autoscaler/releases/tag/addon-resizer-1.8.20)."
+    apiVersion: v2
+    appVersion: 0.7.1
     created: "2024-05-21T10:16:50.53502298Z"
     description: Metrics Server is a scalable, efficient source of container resource
       metrics for Kubernetes built-in autoscaling pipelines.
@@ -2775,6 +2867,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v2
+    appVersion: 4.1.0
+    created: "2024-09-10T15:35:17.742189976Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: c350f61879c174d51f3da97c05ab0ecd742059d2ced2de2fbe89fb17178424c4
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.1.001.tgz
+    version: v4.1.001
   - apiVersion: v2
     appVersion: 4.1.0
     created: "2024-09-10T11:13:44.743478188Z"
