@@ -58,6 +58,21 @@
      # labelSelector: environment=production,method=traefik
      # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces. . When using `rbac.namespaced`, it will watch helm release namespace and namespaces listed in this array.
      namespaces: []
+@@ -351,11 +351,11 @@
+ 
+   kubernetesIngressNginx:
+     # -- Enable Kubernetes Ingress NGINX provider (experimental)
+-    enabled: false
++    enabled: true
+     # -- Ingress Class Controller value this controller satisfies
+-    controllerClass: "k8s.io/ingress-nginx"
++    controllerClass: "rke2.com/migration"
+     # -- Name of the ingress class this controller satisfies
+-    ingressClass: "nginx"
++    ingressClass: "migration"
+     # -- Define if Ingress Controller should watch for Ingress Class by Name together with Controller Class
+     ingressClassByName: false
+     # -- Define if Ingress Controller should also watch for Ingresses without an IngressClass or the annotation specified
 @@ -752,6 +752,8 @@
          insecureSkipVerify: false
  
@@ -72,7 +87,7 @@
      # asDefault: true
      port: 8000
 -    # hostPort: 8000
-+    hostPort: 80
++    hostPort: 8000
      # containerPort: 8000
      expose:
        default: true
@@ -81,7 +96,7 @@
      # asDefault: true
      port: 8443
 -    hostPort:  # @schema type:[integer, null]; minimum:0
-+    hostPort:  443 # @schema type:[integer, null]; minimum:0
++    hostPort:  8443 # @schema type:[integer, null]; minimum:0
      containerPort:  # @schema type:[integer, null]; minimum:0
      expose:
        default: true
@@ -103,8 +118,9 @@
    ## List of IP families (e.g. IPv4 and/or IPv6).
    ## ref: https://kubernetes.io/docs/concepts/services-networking/dual-stack/#services
    # ipFamilies:
-@@ -1346,3 +1348,4 @@
+@@ -1346,3 +1348,5 @@
      hub:
        image: traefik-hub
        tag: latest
++
 +
