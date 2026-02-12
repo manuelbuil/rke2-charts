@@ -1196,6 +1196,23 @@ entries:
   rke2-canal:
   - apiVersion: v1
     appVersion: v3.31.3
+    created: "2026-02-12T14:27:32.440541733Z"
+    description: Install Canal Network Plugin.
+    digest: 4a04ac8ff2526b1af50c29d29ad4f8d914bb11bec6fa40b264ff50a67bffe948
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.31.3-build2026020600.tgz
+    version: v3.31.3-build2026020600
+  - apiVersion: v1
+    appVersion: v3.31.3
     created: "2026-01-16T09:07:35.966610539Z"
     description: Install Canal Network Plugin.
     digest: 250a06d577f931997a6799f283d4fa98c0e0568ceddc35f6cb154cc7901f2a68
@@ -1603,6 +1620,107 @@ entries:
     - assets/rke2-canal-1.19-1.20/rke2-canal-v3.13.3-build2021102205.tgz
     version: v3.13.3-build2021102205
   rke2-cilium:
+  - annotations:
+      artifacthub.io/crds: "- kind: CiliumNetworkPolicy\n  version: v2\n  name: ciliumnetworkpolicies.cilium.io\n
+        \ displayName: Cilium Network Policy\n  description: |\n    Cilium Network
+        Policies provide additional functionality beyond what\n    is provided by
+        standard Kubernetes NetworkPolicy such as the ability\n    to allow traffic
+        based on FQDNs, or to filter at Layer 7.\n- kind: CiliumClusterwideNetworkPolicy\n
+        \ version: v2\n  name: ciliumclusterwidenetworkpolicies.cilium.io\n  displayName:
+        Cilium Clusterwide Network Policy\n  description: |\n    Cilium Clusterwide
+        Network Policies support configuring network traffic\n    policiies across
+        the entire cluster, including applying node firewalls.\n- kind: CiliumLocalRedirectPolicy\n
+        \ version: v2\n  name: ciliumlocalredirectpolicies.cilium.io\n  displayName:
+        Cilium Local Redirect Policy\n  description: |\n    Cilium Local Redirect
+        Policy allows local redirects to be configured\n    within a node to support
+        use cases like Node-Local DNS.\n- kind: CiliumNode\n  version: v2\n  name:
+        ciliumnodes.cilium.io\n  displayName: Cilium Node\n  description: |\n    Cilium
+        Node represents a node managed by Cilium. It contains a\n    specification
+        to control various node specific configuration aspects\n    and a status section
+        to represent the status of the node.\n- kind: CiliumIdentity\n  version: v2\n
+        \ name: ciliumidentities.cilium.io\n  displayName: Cilium Identity\n  description:
+        |\n    Cilium Identity allows introspection into security identities that\n
+        \   Cilium allocates which identify sets of labels that are assigned to\n
+        \   individual endpoints in the cluster.\n- kind: CiliumEndpoint\n  version:
+        v2\n  name: ciliumendpoints.cilium.io\n  displayName: Cilium Endpoint\n  description:
+        |\n    Cilium Endpoint represents the status of individual pods or nodes in\n
+        \   the cluster which are managed by Cilium, including enforcement status,\n
+        \   IP addressing and whether the networking is successfully operational.\n-
+        kind: CiliumEndpointSlice\n  version: v2alpha1\n  name: ciliumendpointslices.cilium.io\n
+        \ displayName: Cilium Endpoint Slice\n  description: |\n    Cilium Endpoint
+        Slice represents the status of groups of pods or nodes\n    in the cluster
+        which are managed by Cilium, including enforcement status,\n    IP addressing
+        and whether the networking is successfully operational.\n- kind: CiliumEgressGatewayPolicy\n
+        \ version: v2\n  name: ciliumegressgatewaypolicies.cilium.io\n  displayName:
+        Cilium Egress Gateway Policy\n  description: |\n    Cilium Egress Gateway
+        Policy provides control over the way that traffic\n    leaves the cluster
+        and which source addresses to use for that traffic.\n- kind: CiliumClusterwideEnvoyConfig\n
+        \ version: v2\n  name: ciliumclusterwideenvoyconfigs.cilium.io\n  displayName:
+        Cilium Clusterwide Envoy Config\n  description: |\n    Cilium Clusterwide
+        Envoy Config specifies Envoy resources and K8s service mappings\n    to be
+        provisioned into Cilium host proxy instances in cluster context.\n- kind:
+        CiliumEnvoyConfig\n  version: v2\n  name: ciliumenvoyconfigs.cilium.io\n  displayName:
+        Cilium Envoy Config\n  description: |\n    Cilium Envoy Config specifies Envoy
+        resources and K8s service mappings\n    to be provisioned into Cilium host
+        proxy instances in namespace context.\n- kind: CiliumNodeConfig\n  version:
+        v2\n  name: ciliumnodeconfigs.cilium.io\n  displayName: Cilium Node Configuration\n
+        \ description: |\n    CiliumNodeConfig is a list of configuration key-value
+        pairs. It is applied to\n    nodes indicated by a label selector.\n- kind:
+        CiliumBGPClusterConfig\n  version: v2alpha1\n  name: ciliumbgpclusterconfigs.cilium.io\n
+        \ displayName: Cilium BGP Cluster Config\n  description: |\n    Cilium BGP
+        Cluster Config instructs Cilium operator to create specific BGP cluster\n
+        \   configurations.\n- kind: CiliumBGPPeerConfig\n  version: v2alpha1\n  name:
+        ciliumbgppeerconfigs.cilium.io\n  displayName: Cilium BGP Peer Config\n  description:
+        |\n    CiliumBGPPeerConfig is a common set of BGP peer configurations. It
+        can be referenced \n    by multiple peers from CiliumBGPClusterConfig.\n-
+        kind: CiliumBGPAdvertisement\n  version: v2alpha1\n  name: ciliumbgpadvertisements.cilium.io\n
+        \ displayName: Cilium BGP Advertisement\n  description: |\n    CiliumBGPAdvertisement
+        is used to define source of BGP advertisement as well as BGP attributes \n
+        \   to be advertised with those prefixes.\n- kind: CiliumBGPNodeConfig\n  version:
+        v2alpha1\n  name: ciliumbgpnodeconfigs.cilium.io\n  displayName: Cilium BGP
+        Node Config\n  description: |\n    CiliumBGPNodeConfig is read only node specific
+        BGP configuration. It is constructed by Cilium operator.\n    It will also
+        contain node local BGP state information.\n- kind: CiliumBGPNodeConfigOverride\n
+        \ version: v2alpha1\n  name: ciliumbgpnodeconfigoverrides.cilium.io\n  displayName:
+        Cilium BGP Node Config Override\n  description: |\n    CiliumBGPNodeConfigOverride
+        can be used to override node specific BGP configuration.\n- kind: CiliumLoadBalancerIPPool\n
+        \ version: v2\n  name: ciliumloadbalancerippools.cilium.io\n  displayName:
+        Cilium Load Balancer IP Pool\n  description: |\n    Defining a Cilium Load
+        Balancer IP Pool instructs Cilium to assign IPs to LoadBalancer Services.\n-
+        kind: CiliumCIDRGroup\n  version: v2alpha1\n  name: ciliumcidrgroups.cilium.io\n
+        \ displayName: Cilium CIDR Group\n  description: |\n    CiliumCIDRGroup is
+        a list of CIDRs that can be referenced as a single entity from CiliumNetworkPolicies.\n-
+        kind: CiliumL2AnnouncementPolicy\n  version: v2alpha1\n  name: ciliuml2announcementpolicies.cilium.io\n
+        \ displayName: Cilium L2 Announcement Policy\n  description: |\n    CiliumL2AnnouncementPolicy
+        is a policy which determines which service IPs will be announced to\n    the
+        local area network, by which nodes, and via which interfaces.\n- kind: CiliumPodIPPool\n
+        \ version: v2alpha1\n  name: ciliumpodippools.cilium.io\n  displayName: Cilium
+        Pod IP Pool\n  description: |\n    CiliumPodIPPool defines an IP pool that
+        can be used for pooled IPAM (i.e. the multi-pool IPAM mode).\n- kind: CiliumGatewayClassConfig\n
+        \ version: v2alpha1\n  name: ciliumgatewayclassconfigs.cilium.io\n  displayName:
+        Cilium Gateway Class Config\n  description: |\n    CiliumGatewayClassConfig
+        defines a configuration for Gateway API GatewayClass.\n"
+    apiVersion: v2
+    appVersion: 1.19.0
+    created: "2026-02-12T14:27:32.598561353Z"
+    description: eBPF-based Networking, Security, and Observability
+    digest: 89fb9534c0bee21c9fa5b04e70cdb58b46b177e32ddecb6567b0089f1f476d93
+    home: https://docs.rke2.io/
+    keywords:
+    - BPF
+    - eBPF
+    - Kubernetes
+    - Networking
+    - Security
+    - Observability
+    - Troubleshooting
+    kubeVersion: '>= 1.21.0-0'
+    name: rke2-cilium
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-cilium/rke2-cilium-1.19.001.tgz
+    version: 1.19.001
   - annotations:
       artifacthub.io/crds: "- kind: CiliumNetworkPolicy\n  version: v2\n  name: ciliumnetworkpolicies.cilium.io\n
         \ displayName: Cilium Network Policy\n  description: |\n    Cilium Network
@@ -3273,6 +3391,34 @@ entries:
   rke2-coredns:
   - annotations:
       artifacthub.io/changes: |
+        - kind: added
+          description: Add configurable dnsPolicy for deployment
+    apiVersion: v2
+    appVersion: 1.13.1
+    created: "2026-02-12T14:27:32.636789804Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 2a580c7dc5e910cbf5c11028e6b564a0813d7af5897c4cc05bbdce8e5f554156
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.45.201.tgz
+    version: 1.45.201
+  - annotations:
+      artifacthub.io/changes: |
         - kind: changed
           description: Bump to CoreDNS 1.13.1
     apiVersion: v2
@@ -3803,6 +3949,19 @@ entries:
     version: 1.10.101-build2021022301
   rke2-flannel:
   - apiVersion: v1
+    appVersion: v0.28.1
+    created: "2026-02-12T14:27:32.641510902Z"
+    description: Install Flannel Network Plugin.
+    digest: bf96c7ee19fb98746a59b088499c39d9cfeaa9468764f244bd328bfb7913b311
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.28.101.tgz
+    version: v0.28.101
+  - apiVersion: v1
     appVersion: v0.28.0
     created: "2026-01-16T09:07:36.15841353Z"
     description: Install Flannel Network Plugin.
@@ -4050,6 +4209,33 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.201.tgz
     version: v0.24.201
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.14.3
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.14.3
+    created: "2026-02-12T14:27:32.687167506Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 83ddcad07c36bd5428a11b43ee03613f45d541400da6d321ea4ce630babd2d44
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.14.302.tgz
+    version: 4.14.302
   - annotations:
       artifacthub.io/changes: |
         - Update Ingress-Nginx version controller-v1.14.1
@@ -4942,6 +5128,42 @@ entries:
           description: "Update the _Metrics Server_ OCI image to [`0.8.0`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.0)."
     apiVersion: v2
     appVersion: 0.8.0
+    created: "2026-02-12T14:27:32.719006385Z"
+    description: Metrics Server is a scalable, efficient source of container resource
+      metrics for Kubernetes built-in autoscaling pipelines.
+    digest: 912b103fe6dabd4c19479d997fde53421f37d0fb888768e9765e1f2b8b59ab28
+    home: https://github.com/kubernetes-sigs/metrics-server
+    icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+    keywords:
+    - kubernetes
+    - metrics-server
+    - metrics
+    maintainers:
+    - name: stevehipwell
+      url: https://github.com/stevehipwell
+    - name: krmichel
+      url: https://github.com/krmichel
+    - name: endrec
+      url: https://github.com/endrec
+    name: rke2-metrics-server
+    sources:
+    - https://github.com/kubernetes-sigs/metrics-server
+    type: application
+    urls:
+    - assets/rke2-metrics-server/rke2-metrics-server-3.13.007.tgz
+    version: 3.13.007
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: "Add chart options to secure the connection between Metrics Server and the Kubernetes API Server."
+        - kind: added
+          description: "Add `unhealthyPodEvictionPolicy` to the Metrics Server PDB as a user enabled feature."
+        - kind: changed
+          description: "Update the _Addon Resizer_ OCI image to [`1.8.23`](https://github.com/kubernetes/autoscaler/releases/tag/addon-resizer-1.8.23)."
+        - kind: changed
+          description: "Update the _Metrics Server_ OCI image to [`0.8.0`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.0)."
+    apiVersion: v2
+    appVersion: 0.8.0
     created: "2026-01-16T09:07:36.230162581Z"
     description: Metrics Server is a scalable, efficient source of container resource
       metrics for Kubernetes built-in autoscaling pipelines.
@@ -5275,6 +5497,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v2
+    appVersion: 4.2.3
+    created: "2026-02-12T14:27:32.731150846Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 4c2cd69f19df33373c8b154dc5c8618e0aaa51728388b01d21ab1e731bff8a9b
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.2.315.tgz
+    version: v4.2.315
   - apiVersion: v2
     appVersion: 4.2.3
     created: "2026-01-16T09:07:36.241524774Z"
@@ -5652,6 +5895,30 @@ entries:
   rke2-snapshot-controller:
   - apiVersion: v2
     appVersion: v8.4.0
+    created: "2026-02-12T14:27:32.734509141Z"
+    description: |
+      Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
+      this chart is meant for cases where it is not.
+    digest: 389fbb992616677932f383daa6ab92152b73917c3e3dff0b3ab360dbaa9847d4
+    home: https://github.com/piraeusdatastore/helm-charts
+    icon: https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/artwork/sandbox-artwork/icon/color.svg
+    keywords:
+    - storage
+    - snapshot
+    - validation
+    kubeVersion: '>= 1.25.0-0'
+    maintainers:
+    - name: The Piraeus Maintainers
+      url: https://github.com/piraeusdatastore/
+    name: rke2-snapshot-controller
+    sources:
+    - https://github.com/kubernetes-csi/external-snapshotter/
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-4.2.001.tgz
+    version: 4.2.001
+  - apiVersion: v2
+    appVersion: v8.4.0
     created: "2026-01-16T09:07:36.24526534Z"
     description: |
       Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
@@ -5776,6 +6043,16 @@ entries:
   rke2-snapshot-controller-crd:
   - apiVersion: v1
     appVersion: v8.4.0
+    created: "2026-02-12T14:27:32.737447298Z"
+    description: Installs the CRDs for rke2-snapshot-controller
+    digest: edf0e262c3e687800d2ddc4f4aec8421c862e10b2a27474485f7d2d839640b78
+    name: rke2-snapshot-controller-crd
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-crd-4.2.001.tgz
+    version: 4.2.001
+  - apiVersion: v1
+    appVersion: v8.4.0
     created: "2026-01-16T09:07:36.246835951Z"
     description: Installs the CRDs for rke2-snapshot-controller
     digest: a57cbe4308a1b5cb783aa584374385bfb33de19f367a3a3b69be63b2965dccab
@@ -5878,6 +6155,34 @@ entries:
     - assets/rke2-snapshot-validation-webhook/rke2-snapshot-validation-webhook-1.7.302.tgz
     version: 1.7.302
   rke2-traefik:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v2
+    appVersion: v3.6.7
+    created: "2026-02-12T14:27:32.770270062Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 91343774d17bc0cc54e8a8ce9e54b7d8f7c34d21a560e662c5534e56dd6d7b6d
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/traefik/traefik
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-39.0.000.tgz
+    version: 39.0.000
   - annotations:
       artifacthub.io/changes: "- \"fix(ports): \U0001F41B add missing `http.maxHeaderBytes`
         option\"\n- \"fix(ports): \U0001F41B `http.encodedCharacters` on custom entrypoints\"\n-
@@ -6163,6 +6468,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.6.7
+    created: "2026-02-12T14:27:32.789601085Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 4aa638068e29b773a87bee5fe5abb817298799d8bf85d829bfc887d2bee1ced6
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-39.0.000.tgz
+    version: 39.0.000
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
