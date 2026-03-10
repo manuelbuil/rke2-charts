@@ -3522,6 +3522,34 @@ entries:
           description: Add configurable dnsPolicy for deployment
     apiVersion: v2
     appVersion: 1.13.1
+    created: "2026-03-10T09:09:10.305076186Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: f8b03e76794e12ecf09f1fafdfc223d373efd772e002257b6a1379f0a06d2a57
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.45.204.tgz
+    version: 1.45.204
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: Add configurable dnsPolicy for deployment
+    apiVersion: v2
+    appVersion: 1.13.1
     created: "2026-02-26T16:10:54.250516091Z"
     description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
       DNS Services
@@ -4364,6 +4392,33 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.201.tgz
     version: v0.24.201
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.14.3
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.14.3
+    created: "2026-03-10T09:09:10.361768198Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: 18a943630d579009a089a45d00e2a086f5f01c107420c2cfc23f4848b1feb23f
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.14.306.tgz
+    version: 4.14.306
   - annotations:
       artifacthub.io/changes: |
         - Update Ingress-Nginx version controller-v1.14.3
@@ -5654,6 +5709,27 @@ entries:
   rke2-multus:
   - apiVersion: v2
     appVersion: 4.2.4
+    created: "2026-03-10T09:09:10.40960652Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 718f160396ad1a62d9a6fc9e43249e2aaf432af041b272ffeb4404c19d8dc6a6
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.2.403.tgz
+    version: v4.2.403
+  - apiVersion: v2
+    appVersion: 4.2.4
     created: "2026-02-26T16:10:54.346352674Z"
     dependencies:
     - condition: rke2-whereabouts.enabled
@@ -6334,6 +6410,34 @@ entries:
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v2
+    appVersion: v3.6.9
+    created: "2026-03-10T09:09:10.464088367Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: b71dc0b18f334b53ec232d64be9e886c93a805ce29ac4ed6aad9e69cc96e260f
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/traefik/traefik
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-39.0.002.tgz
+    version: 39.0.002
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v2
     appVersion: v3.6.7
     created: "2026-02-26T16:10:54.39085585Z"
     description: A Traefik based Kubernetes ingress controller
@@ -6672,6 +6776,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.6.7
+    created: "2026-03-10T09:09:10.495627604Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 8df858cc581d2b86808350eda11f3a78ca61ed29032b6ac9f8ab879604efae97
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-39.0.002.tgz
+    version: 39.0.002
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
