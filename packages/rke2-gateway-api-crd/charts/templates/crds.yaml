@@ -1,0 +1,6 @@
+{{- if eq (.Values.gatewayAPIExperimental | toString) "true" -}}
+{{ include "render-crds" (dict "scope" . "path" "crds/experimental-install.yaml") }}
+
+{{- else -}}
+{{ include "render-crds" (dict "scope" . "path" "crds/standard-install.yaml") }}
+{{- end }}
