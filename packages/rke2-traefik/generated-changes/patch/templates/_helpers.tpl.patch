@@ -9,15 +9,18 @@
  {{- end -}}
  {{- end -}}
  
-@@ -147,9 +147,17 @@
+@@ -147,9 +147,20 @@
  {{- print $servicePath | trimSuffix "-" -}}
  {{- end -}}
  
 +{{- define "providers.kubernetesIngressNGINX.values" -}}
 +{{- $new := default dict .Values.providers.kubernetesIngressNGINX -}}
 +{{- $old := default dict .Values.providers.kubernetesIngressNginx -}}
-+{{- $provider := coalesce (and $new.enabled $new) (and $old.enabled $old) $new -}}
-+{{- toYaml $provider -}}
++{{- $provider := $new -}}
++{{- if and $old.enabled (not $new.enabled) -}}
++{{- $provider = mergeOverwrite (dict) $new $old -}}
++{{- end -}}
++{{- print $provider }}
 +{{- end -}}
 +
  {{- define "providers.kubernetesIngressNGINX.publishServicePath" -}}
@@ -28,7 +31,7 @@
  {{- print $servicePath | trimSuffix "-" -}}
  {{- end -}}
  
-@@ -166,7 +174,13 @@
+@@ -166,7 +177,13 @@
  {{- default (include "traefik.namespace" .) (join "," .Values.providers.kubernetesIngress.namespaces) }}
  {{- end -}}
  {{- define "providers.kubernetesIngressNGINX.namespaces" -}}
@@ -43,7 +46,7 @@
  {{- end -}}
  {{- define "providers.knative.namespaces" -}}
  {{- default (include "traefik.namespace" .) (join "," .Values.providers.knative.namespaces) }}
-@@ -486,3 +500,11 @@
+@@ -486,3 +503,11 @@
  {{- define "traefik.hubTokenFilePath" }}
  {{- printf "%s/%s" (.Values.hub.tokenMountPath | trimSuffix "/") "token" -}}
  {{- end -}}

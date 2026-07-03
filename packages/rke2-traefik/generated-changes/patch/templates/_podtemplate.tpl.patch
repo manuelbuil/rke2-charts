@@ -14,7 +14,7 @@
            {{- end }}
            {{- end }}
 -          {{- with .Values.providers.kubernetesIngressNGINX }}
-+          {{- $kubernetesIngressNGINX := (include "providers.kubernetesIngressNGINX.values" . | fromYaml) }}
++          {{- $kubernetesIngressNGINX := (include "providers.kubernetesIngressNGINX.values" . | fromYaml) -}}
 +          {{- with $kubernetesIngressNGINX }}
             {{- if .enabled }}
            - "--providers.kubernetesingressnginx"
