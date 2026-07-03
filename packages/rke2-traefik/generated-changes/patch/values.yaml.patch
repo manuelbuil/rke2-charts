@@ -53,7 +53,51 @@
      # -- See [upstream documentation](https://doc.traefik.io/traefik/reference/install-configuration/providers/kubernetes/kubernetes-ingress/#opt-providers-kubernetesIngress-labelselector)
      labelSelector: ""
      # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces. . When using `rbac.namespaced`, it will watch helm release namespace and namespaces listed in this array.
-@@ -854,6 +854,8 @@
+@@ -482,6 +482,43 @@
+       snippet: ""
+ 
+   # @schema additionalProperties: false
++  # -- DEPRECATED: use providers.kubernetesIngressNGINX instead
++  # -- It must be included to get defaults for the deperacted kubernetesIngressNginx provider
++  kubernetesIngressNginx:
++    # -- Enable Kubernetes Ingress NGINX provider (experimental)
++    enabled: false
++    # -- Ingress Class Controller value this controller satisfies
++    controllerClass: "k8s.io/ingress-nginx"
++    # -- Name of the ingress class this controller satisfies
++    ingressClass: "nginx"
++    # -- Define if Ingress Controller should watch for Ingress Class by Name together with Controller Class
++    ingressClassByName: false
++    # -- Define if Ingress Controller should also watch for Ingresses without an IngressClass or the annotation specified
++    watchIngressWithoutClass: false
++    # -- Namespace the controller watches for updates to Kubernetes objects. Mutually exclusive with watchNamespaceSelector.
++    watchNamespace: ""
++    # -- Select namespaces the controller watches for updates to Kubernetes objects. Mutually exclusive with watchNamespace.
++    watchNamespaceSelector: ""
++    publishService:
++      # -- Service fronting the Ingress controller. Takes the form 'namespace/name'
++      enabled: false
++      pathOverride: ""
++    # -- Customized address (or addresses, separated by comma) to set as the load-balancer status of Ingress objects this controller satisfies
++    publishStatusAddress: ""
++    # -- Service used to serve HTTP requests not matching any known server name (catch-all). Takes the form 'namespace/name'
++    defaultBackendService: ""
++    # -- Disable support for Services of type ExternalName
++    disableSvcExternalName: false
++    # -- Ingress refresh throttle duration
++    throttleDuration: ""
++    # -- Kubernetes certificate authority file path (not needed for in-cluster client)
++    certAuthFilePath: ""
++    # -- Kubernetes server endpoint (required for external cluster client)
++    endpoint: ""
++    # -- Kubernetes bearer token (not needed for in-cluster client). It accepts either a token value or a file path to the token
++    token: ""
++
++  # @schema additionalProperties: false
+   knative:
+     # -- Enable Knative provider
+     enabled: false
+@@ -854,6 +891,8 @@
          insecureSkipVerify:  # @schema type:[boolean, null]
  
  global:
@@ -62,7 +106,7 @@
    checkNewVersion: true
    # -- Please take time to consider whether or not you wish to share anonymous data with us
    # See https://doc.traefik.io/traefik/contributing/data-collection/
-@@ -926,7 +928,7 @@
+@@ -926,7 +965,7 @@
      ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
      asDefault:  # @schema type: [boolean, null]; default: null
      port: 8000
@@ -71,7 +115,7 @@
      # containerPort: 8000
      expose:
        default: true
-@@ -984,7 +986,7 @@
+@@ -984,7 +1023,7 @@
      ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
      # asDefault: true
      port: 8443
@@ -80,7 +124,7 @@
      containerPort:  # @schema type:[integer, null]; minimum:0
      expose:
        default: true
-@@ -1112,7 +1114,8 @@
+@@ -1112,7 +1151,8 @@
    # -- Additional entries here will be added to the Service [spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.35/#servicespec-v1-core).
    # Cannot contain selector or ports entries.
    spec:
@@ -90,7 +134,7 @@
    # -- Can be used to create multiple Service.
    # See EXAMPLES.md for more details.
    additionalServices: {}
-@@ -1201,7 +1204,8 @@
+@@ -1201,7 +1241,8 @@
  #        topologyKey: kubernetes.io/hostname
  
  # -- nodeSelector is the simplest recommended form of node selection constraint.
