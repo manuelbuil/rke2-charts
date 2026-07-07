@@ -5533,6 +5533,17 @@ entries:
     urls:
     - assets/rke2-flannel/rke2-flannel-v0.24.201.tgz
     version: v0.24.201
+  rke2-gateway-api-crd:
+  - apiVersion: v2
+    appVersion: v1.5.1
+    created: "2026-07-07T09:03:50.253503996Z"
+    description: RKE2 Helm chart for Gateway API CRDs
+    digest: 33868ca5ac0820254c99361f41dcc91c4ae5775e9b9dd519ada7cd90829d161d
+    name: rke2-gateway-api-crd
+    type: application
+    urls:
+    - assets/rke2-gateway-api-crd/rke2-gateway-api-crd-1.5.100.tgz
+    version: 1.5.100
   rke2-ingress-nginx:
   - annotations:
       artifacthub.io/changes: |
