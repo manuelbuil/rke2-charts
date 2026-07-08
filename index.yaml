@@ -414,6 +414,34 @@ entries:
       catalog.cattle.io/release-name: vsphere-cpi
     apiVersion: v1
     appVersion: 1.36.0
+    created: "2026-07-08T10:34:42.750535635Z"
+    description: vSphere Cloud Provider Interface (CPI)
+    digest: 0a71c83d2d3062a99eba53ff77e687367309ac968dedfcc1b44564d6863af372
+    icon: https://charts.rancher.io/assets/logos/vsphere-cpi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-cpi
+    sources:
+    - https://github.com/kubernetes/cloud-provider-vsphere
+    urls:
+    - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.15.000.tgz
+    version: 1.15.000
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CPI
+      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.37.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.9.0-0'
+      catalog.cattle.io/release-name: vsphere-cpi
+    apiVersion: v1
+    appVersion: 1.36.0
     created: "2026-05-28T12:14:46.245738032Z"
     description: vSphere Cloud Provider Interface (CPI)
     digest: 6eaa42cf1cd96d1d1e31638c787689da1829b13f090a9a28711ec31b4d439340
@@ -658,6 +686,34 @@ entries:
     - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.5.100.tgz
     version: 1.5.100
   rancher-vsphere-csi:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CSI
+      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.37.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux,windows
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.9.0-0'
+      catalog.cattle.io/release-name: vsphere-csi
+    apiVersion: v1
+    appVersion: 3.7.2
+    created: "2026-07-08T10:34:42.768263402Z"
+    description: vSphere Cloud Storage Interface (CSI)
+    digest: cd1e75e59c2f2b71917a709c0447dc019b2fbb2c9e1a777720bed9a2fc42fe2f
+    icon: https://charts.rancher.io/assets/logos/vsphere-csi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-csi
+    sources:
+    - https://github.com/kubernetes-sigs/vsphere-csi-driver
+    urls:
+    - assets/rancher-vsphere-csi/rancher-vsphere-csi-3.7.2-rancher200.tgz
+    version: 3.7.2-rancher200
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: vSphere CSI
@@ -5196,6 +5252,19 @@ entries:
     version: 1.10.101-build2021022301
   rke2-flannel:
   - apiVersion: v1
+    appVersion: v0.28.7
+    created: "2026-07-08T10:34:43.2250705Z"
+    description: Install Flannel Network Plugin.
+    digest: 16a44d0d4821d4895d0d33804a1b7f9285db40e52646147bbbcdb2fa175f01f0
+    keywords:
+    - Flannel
+    name: rke2-flannel
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-flannel/rke2-flannel-v0.28.701.tgz
+    version: v0.28.701
+  - apiVersion: v1
     appVersion: v0.28.5
     created: "2026-07-03T07:45:07.565595084Z"
     description: Install Flannel Network Plugin.
@@ -5545,6 +5614,33 @@ entries:
     - assets/rke2-gateway-api-crd/rke2-gateway-api-crd-1.5.100.tgz
     version: 1.5.100
   rke2-ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.15.1
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.15.1
+    created: "2026-07-08T10:34:43.302810234Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: f0a217cfb8be7c1bff97c63663e35cc361f9ce9923ced64b062e434a2d1686d8
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.15.102.tgz
+    version: 4.15.102
   - annotations:
       artifacthub.io/changes: |
         - Update Ingress-Nginx version controller-v1.15.1
@@ -8141,6 +8237,44 @@ entries:
       traefik.io/proxy-min-version: v3.6.0
     apiVersion: v2
     appVersion: v3.7.1
+    created: "2026-07-08T10:34:43.488082262Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: b526975758f1d997d0e8f70110d03b8ff5928cd09ed037e51ca9c501efe690bb
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.25.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/traefik/traefik
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-40.1.005.tgz
+    version: 40.1.005
+  - annotations:
+      artifacthub.io/changes: |
+        - "fix(ingressroute): :bug: use spec.ingressClassName with Proxy v3.7+"
+        - "feat(provider/kubernetesIngressNGINX): set default values on httpentrypoint & httpsentrypoint"
+        - "feat(deps): update traefik docker tag to v3.7.1"
+        - "feat(api): support disableDashboardAd option"
+        - "chore(release): publish 40.1.0"
+      fleet.cattle.io/bundle-id: rke2
+      traefik.io/hub-max-version: v3.20.1
+      traefik.io/hub-min-version: v3.19.3
+      traefik.io/proxy-max-version: v3.7.1
+      traefik.io/proxy-min-version: v3.6.0
+    apiVersion: v2
+    appVersion: v3.7.1
     created: "2026-07-03T07:45:07.817321619Z"
     description: A Traefik based Kubernetes ingress controller
     digest: dee55c4a92df0419617ea24620d98289194158005d6d6995befeb4c6b2d806e2
@@ -8794,6 +8928,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.7.1
+    created: "2026-07-08T10:34:43.564198617Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 2527e78a04dfce30c5e40a6827c7edf6dec8bee28442dafb7c4a909d92a80372
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-40.1.005.tgz
+    version: 40.1.005
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
