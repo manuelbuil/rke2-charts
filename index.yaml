@@ -443,6 +443,34 @@ entries:
       catalog.cattle.io/release-name: vsphere-cpi
     apiVersion: v1
     appVersion: 1.36.0
+    created: "2026-07-14T15:59:14.408792032Z"
+    description: vSphere Cloud Provider Interface (CPI)
+    digest: cf3862ee50c87955d5ebf0ab0527c19fee39b891f0dd6f56ede0110154e5c8c7
+    icon: https://charts.rancher.io/assets/logos/vsphere-cpi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-cpi
+    sources:
+    - https://github.com/kubernetes/cloud-provider-vsphere
+    urls:
+    - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.15.200.tgz
+    version: 1.15.200
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CPI
+      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.37.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.9.0-0'
+      catalog.cattle.io/release-name: vsphere-cpi
+    apiVersion: v1
+    appVersion: 1.36.0
     created: "2026-07-08T10:34:42.750535635Z"
     description: vSphere Cloud Provider Interface (CPI)
     digest: 0a71c83d2d3062a99eba53ff77e687367309ac968dedfcc1b44564d6863af372
@@ -715,6 +743,34 @@ entries:
     - assets/rancher-vsphere-cpi/rancher-vsphere-cpi-1.5.100.tgz
     version: 1.5.100
   rancher-vsphere-csi:
+  - annotations:
+      catalog.cattle.io/certified: rancher
+      catalog.cattle.io/display-name: vSphere CSI
+      catalog.cattle.io/kube-version: '>= 1.27.0-0 < 1.37.0-0'
+      catalog.cattle.io/namespace: kube-system
+      catalog.cattle.io/os: linux,windows
+      catalog.cattle.io/permits-os: linux,windows
+      catalog.cattle.io/rancher-version: '>= 2.9.0-0'
+      catalog.cattle.io/release-name: vsphere-csi
+    apiVersion: v1
+    appVersion: 3.7.2
+    created: "2026-07-14T15:59:14.420781614Z"
+    description: vSphere Cloud Storage Interface (CSI)
+    digest: e3fb882d0386628f41e3d87109618e1d77904c53df06d47ef10303121f586050
+    icon: https://charts.rancher.io/assets/logos/vsphere-csi.svg
+    keywords:
+    - infrastructure
+    maintainers:
+    - email: jiaqi.luo@suse.com
+      name: Jiaqi Luo
+    - email: brad.davidson@suse.com
+      name: Brad Davidson
+    name: rancher-vsphere-csi
+    sources:
+    - https://github.com/kubernetes-sigs/vsphere-csi-driver
+    urls:
+    - assets/rancher-vsphere-csi/rancher-vsphere-csi-3.7.2-rancher300.tgz
+    version: 3.7.2-rancher300
   - annotations:
       catalog.cattle.io/certified: rancher
       catalog.cattle.io/display-name: vSphere CSI
@@ -4648,6 +4704,34 @@ entries:
           description: Add scrapeTimeout, scheme, honorLabels, tlsConfig, relabelings, and metricRelabelings options to ServiceMonitor endpoint
     apiVersion: v2
     appVersion: 1.13.1
+    created: "2026-07-14T15:59:14.756833454Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: dc7939b595ede4be59c2206c4c09353b1b0a7503ebeb4f80daf1bf6ce7291195
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.46.005.tgz
+    version: 1.46.005
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: added
+          description: Add scrapeTimeout, scheme, honorLabels, tlsConfig, relabelings, and metricRelabelings options to ServiceMonitor endpoint
+    apiVersion: v2
+    appVersion: 1.13.1
     created: "2026-07-03T07:45:07.557851201Z"
     description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
       DNS Services
@@ -5807,6 +5891,33 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.15.1
+    created: "2026-07-14T15:59:14.819439991Z"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: c6a4eca3c6633075030ea04ae4742f960d9ae1d5831c04756e1f931f290b9366
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: strongjz
+    - name: tao12345666333
+    name: rke2-ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - assets/rke2-ingress-nginx/rke2-ingress-nginx-4.15.103.tgz
+    version: 4.15.103
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.15.1
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.15.1
     created: "2026-07-08T10:34:43.302810234Z"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
@@ -6907,6 +7018,40 @@ entries:
           description: "Update the Metrics Server OCI image to [`0.8.1`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.1)."
     apiVersion: v2
     appVersion: 0.8.1
+    created: "2026-07-14T15:59:14.844523283Z"
+    description: Metrics Server is a scalable, efficient source of container resource
+      metrics for Kubernetes built-in autoscaling pipelines.
+    digest: c98e18a3605d1250a82304cac81e37d2dc5694e7b48b9e27383fcbec56d8b3cf
+    home: https://github.com/kubernetes-sigs/metrics-server
+    icon: https://avatars.githubusercontent.com/u/36015203?s=400&v=4
+    keywords:
+    - kubernetes
+    - metrics-server
+    - metrics
+    maintainers:
+    - name: stevehipwell
+      url: https://github.com/stevehipwell
+    - name: krmichel
+      url: https://github.com/krmichel
+    - name: endrec
+      url: https://github.com/endrec
+    name: rke2-metrics-server
+    sources:
+    - https://github.com/kubernetes-sigs/metrics-server
+    type: application
+    urls:
+    - assets/rke2-metrics-server/rke2-metrics-server-3.13.102.tgz
+    version: 3.13.102
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: fixed
+          description: "Conditionally render `insecureSkipTLSVerify` field in APIService template to prevent GitOps sync drift when value is `false`."
+        - kind: fixed
+          description: "Do not render annotations as null in APIService template to prevent permanent OutOfSync in ArgoCD."
+        - kind: changed
+          description: "Update the Metrics Server OCI image to [`0.8.1`](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.8.1)."
+    apiVersion: v2
+    appVersion: 0.8.1
     created: "2026-07-03T07:45:07.673041998Z"
     description: Metrics Server is a scalable, efficient source of container resource
       metrics for Kubernetes built-in autoscaling pipelines.
@@ -7418,6 +7563,27 @@ entries:
     - assets/rke2-metrics-server/rke2-metrics-server-2.11.100-build2021022300.tgz
     version: 2.11.100-build2021022300
   rke2-multus:
+  - apiVersion: v2
+    appVersion: 4.3.0
+    created: "2026-07-14T15:59:14.858965308Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: 357f9f88d5e7dceebc90c889ee2bf68cdf6cdfdf3ff3f914a9bb76ff65fd2d66
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.3.004.tgz
+    version: v4.3.004
   - apiVersion: v2
     appVersion: 4.3.0
     created: "2026-07-09T10:25:38.037795133Z"
@@ -8035,6 +8201,30 @@ entries:
   rke2-snapshot-controller:
   - apiVersion: v2
     appVersion: v8.5.0
+    created: "2026-07-14T15:59:14.864337133Z"
+    description: |
+      Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
+      this chart is meant for cases where it is not.
+    digest: efffa843917fbf43f7c1a745a2be355507ed64c73eccbc2301d8e4056d14d5b6
+    home: https://github.com/piraeusdatastore/helm-charts
+    icon: https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/artwork/sandbox-artwork/icon/color.svg
+    keywords:
+    - storage
+    - snapshot
+    - validation
+    kubeVersion: '>= 1.25.0-0'
+    maintainers:
+    - name: The Piraeus Maintainers
+      url: https://github.com/piraeusdatastore/
+    name: rke2-snapshot-controller
+    sources:
+    - https://github.com/kubernetes-csi/external-snapshotter/
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-4.2.007.tgz
+    version: 4.2.007
+  - apiVersion: v2
+    appVersion: v8.5.0
     created: "2026-07-03T07:45:07.705260863Z"
     description: |
       Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
@@ -8279,6 +8469,16 @@ entries:
   rke2-snapshot-controller-crd:
   - apiVersion: v1
     appVersion: v8.6.0
+    created: "2026-07-14T15:59:14.86791502Z"
+    description: Installs the CRDs for rke2-snapshot-controller
+    digest: 6e9a96ad2c26772731eec7521dea9bbfba318313b66cf2fc6c77780710bceda0
+    name: rke2-snapshot-controller-crd
+    type: application
+    urls:
+    - assets/rke2-snapshot-controller/rke2-snapshot-controller-crd-4.2.007.tgz
+    version: 4.2.007
+  - apiVersion: v1
+    appVersion: v8.6.0
     created: "2026-07-03T07:45:07.7100506Z"
     description: Installs the CRDs for rke2-snapshot-controller
     digest: bac8b384e81f52dee24eb8112a20613963155d0bac27dcf318d0c236b41e094a
@@ -8431,6 +8631,44 @@ entries:
     - assets/rke2-snapshot-validation-webhook/rke2-snapshot-validation-webhook-1.7.302.tgz
     version: 1.7.302
   rke2-traefik:
+  - annotations:
+      artifacthub.io/changes: |
+        - "fix(ingressroute): :bug: use spec.ingressClassName with Proxy v3.7+"
+        - "feat(provider/kubernetesIngressNGINX): set default values on httpentrypoint & httpsentrypoint"
+        - "feat(deps): update traefik docker tag to v3.7.1"
+        - "feat(api): support disableDashboardAd option"
+        - "chore(release): publish 40.1.0"
+      fleet.cattle.io/bundle-id: rke2
+      traefik.io/hub-max-version: v3.20.1
+      traefik.io/hub-min-version: v3.19.3
+      traefik.io/proxy-max-version: v3.7.1
+      traefik.io/proxy-min-version: v3.6.0
+    apiVersion: v2
+    appVersion: v3.7.1
+    created: "2026-07-14T15:59:14.958232409Z"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 40ef36f739e6fb52e2f8da2184936e52d8629fa5ffb0097526d2cdf26344453d
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/master/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.25.0-0'
+    maintainers:
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: remi.buisson@traefik.io
+      name: darkweaver87
+    - name: jnoordsij
+    name: rke2-traefik
+    sources:
+    - https://github.com/traefik/traefik-helm-chart
+    - https://github.com/traefik/traefik
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-40.1.008.tgz
+    version: 40.1.008
   - annotations:
       artifacthub.io/changes: |
         - "fix(ingressroute): :bug: use spec.ingressClassName with Proxy v3.7+"
@@ -9174,6 +9412,18 @@ entries:
     - assets/rke2-traefik/rke2-traefik-25.0.000.tgz
     version: 25.0.000
   rke2-traefik-crd:
+  - annotations:
+      fleet.cattle.io/bundle-id: rke2
+    apiVersion: v1
+    appVersion: v3.7.1
+    created: "2026-07-14T15:59:15.021659898Z"
+    description: Installs the CRDs for rke2-traefik
+    digest: 16876c2f19c683be575b4b79a907f3c3437e7b4c73ef0d33dfdbc498d9da9c69
+    name: rke2-traefik-crd
+    type: application
+    urls:
+    - assets/rke2-traefik/rke2-traefik-crd-40.1.008.tgz
+    version: 40.1.008
   - annotations:
       fleet.cattle.io/bundle-id: rke2
     apiVersion: v1
