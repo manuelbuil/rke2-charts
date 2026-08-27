@@ -1688,6 +1688,23 @@ entries:
   rke2-canal:
   - apiVersion: v1
     appVersion: v3.32.1
+    created: "2026-08-27T15:41:55.272758137Z"
+    description: Install Canal Network Plugin.
+    digest: 0b65abef6d4798fad644de2ff3caca5f88135c23a1339a67b7d73799df7b1c3a
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.32.1-build2026082700.tgz
+    version: v3.32.1-build2026082700
+  - apiVersion: v1
+    appVersion: v3.32.1
     created: "2026-08-25T13:45:09.124176263Z"
     description: Install Canal Network Plugin.
     digest: 75cd0dbb54d740d86586e31003dc51c9409dfa2bcfeebf346fbeda4af83f916e
@@ -6350,6 +6367,16 @@ entries:
     - assets/rke2-flannel/rke2-flannel-v0.24.201.tgz
     version: v0.24.201
   rke2-gateway-api-crd:
+  - apiVersion: v2
+    appVersion: v1.6.1
+    created: "2026-08-27T15:41:55.557030224Z"
+    description: RKE2 Helm chart for Gateway API CRDs
+    digest: ffbd60dc909d3332a6db4a139b7393bdaa5ea896512a6f8f9843d2d119d3e891
+    name: rke2-gateway-api-crd
+    type: application
+    urls:
+    - assets/rke2-gateway-api-crd/rke2-gateway-api-crd-1.6.100.tgz
+    version: 1.6.100
   - apiVersion: v2
     appVersion: v1.5.1
     created: "2026-07-07T09:03:50.253503996Z"
