@@ -2065,6 +2065,23 @@ entries:
   rke2-canal:
   - apiVersion: v1
     appVersion: v3.32.2
+    created: "2026-10-21T08:59:11.390176413Z"
+    description: Install Canal Network Plugin.
+    digest: df27a96f07054c5cc05743cbddda101695261490972673f9f980805f9c2c643c
+    home: https://www.projectcalico.org/
+    keywords:
+    - canal
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-canal
+    sources:
+    - https://github.com/rancher/rke2-charts
+    urls:
+    - assets/rke2-canal/rke2-canal-v3.32.2-build2026102000.tgz
+    version: v3.32.2-build2026102000
+  - apiVersion: v1
+    appVersion: v3.32.2
     created: "2026-10-20T19:08:04.369096822Z"
     description: Install Canal Network Plugin.
     digest: da58abe5f5283ea422c33e53a3e85c1fb2e6ac26e994466d21f5cd444a1aadbf
@@ -5827,6 +5844,34 @@ entries:
           description: serviceAccount.create defaults to true, so CoreDNS runs as its own ServiceAccount and the chart's ClusterRole is no longer bound to the namespace's default ServiceAccount, which every pod without its own account uses
     apiVersion: v2
     appVersion: 1.14.7
+    created: "2026-10-21T08:59:11.776510464Z"
+    description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
+      DNS Services
+    digest: 795979bfc72965c968d9d78830988f0389198073ee4388b8583bd6a075d6812e
+    home: https://coredns.io
+    icon: https://coredns.io/images/CoreDNS_Colour_Horizontal.png
+    keywords:
+    - coredns
+    - dns
+    - kubedns
+    maintainers:
+    - name: mrueg
+    - name: haad
+    - name: hagaibarel
+    - name: shubham-cmyk
+    name: rke2-coredns
+    sources:
+    - https://github.com/coredns/coredns
+    type: application
+    urls:
+    - assets/rke2-coredns/rke2-coredns-1.49.001.tgz
+    version: 1.49.001
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: security
+          description: serviceAccount.create defaults to true, so CoreDNS runs as its own ServiceAccount and the chart's ClusterRole is no longer bound to the namespace's default ServiceAccount, which every pod without its own account uses
+    apiVersion: v2
+    appVersion: 1.14.7
     created: "2026-10-20T19:08:04.700612116Z"
     description: CoreDNS is a DNS server that chains plugins and provides Kubernetes
       DNS Services
@@ -9354,6 +9399,27 @@ entries:
   rke2-multus:
   - apiVersion: v1
     appVersion: 4.3.1
+    created: "2026-10-21T08:59:11.98243448Z"
+    dependencies:
+    - condition: rke2-whereabouts.enabled
+      name: rke2-whereabouts
+      repository: file://./charts/rke2-whereabouts
+    description: Multus Helm chart for Kubernetes
+    digest: dac304111cceb1d6040e38467f820cc9bfb99a335be9296e44703cfb59275b5c
+    home: https://github.com/k8snetworkplumbingwg/multus-cni
+    icon: https://raw.githubusercontent.com/k8snetworkplumbingwg/multus-cni/master/doc/images/Multus.png
+    maintainers:
+    - email: charts@rancher.com
+      name: Rancher Labs
+    name: rke2-multus
+    sources:
+    - https://github.com/intel/multus-cni
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-v4.3.114.tgz
+    version: v4.3.114
+  - apiVersion: v1
+    appVersion: 4.3.1
     created: "2026-10-20T19:08:04.877198104Z"
     dependencies:
     - condition: rke2-whereabouts.enabled
@@ -10131,6 +10197,15 @@ entries:
     version: v4.0.2-build2024020800
   rke2-multus-crd:
   - apiVersion: v1
+    created: "2026-10-21T08:59:11.953694421Z"
+    description: Installs the CRDs for rke2-multus
+    digest: d5869d17196018c49e3fa161cda7ca25d6cab0699a596d8d2b8437504cfa4934
+    name: rke2-multus-crd
+    type: application
+    urls:
+    - assets/rke2-multus/rke2-multus-crd-4.3.114.tgz
+    version: 4.3.114
+  - apiVersion: v1
     created: "2026-10-20T19:08:04.853108465Z"
     description: Installs the CRDs for rke2-multus
     digest: 4f7bc8d04dd90e19ce79283408e27a94bbe044f37df40d3b9d4649aec7797ffc
@@ -10222,6 +10297,24 @@ entries:
     - assets/rke2-runtimeclasses/rke2-runtimeclasses-0.1.000.tgz
     version: 0.1.000
   rke2-security-responder:
+  - apiVersion: v2
+    appVersion: 0.1.9
+    created: "2026-10-21T08:59:11.989522805Z"
+    description: RKE2 Security Responder for in-cluster CVE/security notifications
+      and telemetry
+    digest: 8e53e8b65c0a40e8b60edd25ee985e36c627424251036fb86ff0420b67307961
+    keywords:
+    - rke2
+    - security
+    - telemetry
+    maintainers:
+    - email: rke2-maintainers@suse.com
+      name: RKE2 Team
+    name: rke2-security-responder
+    type: application
+    urls:
+    - assets/rke2-security-responder/rke2-security-responder-0.1.901.tgz
+    version: 0.1.901
   - apiVersion: v2
     appVersion: 0.1.8
     created: "2026-10-20T19:08:04.882171116Z"
